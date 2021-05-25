@@ -1,0 +1,27 @@
+<div class="d-flex justify-content-center">
+  <table>
+    <thead>
+      <tr>
+        <th>Tasks (ID)</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Priority</th>
+        <th>Status</th>
+        <th>Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tasks.each do |task| %>
+          <tr>
+            <td><%= task.id %></td>
+            <td><%=task.title %></td>      
+            <td><%=task.description %></td>
+            <td><%=task.priority %></td>
+            <td><%=task.status %></td>
+            <td><%= link_to 'Edit', edit_task_path(task) %> - <%= link_to 'Delete'.html_safe, task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

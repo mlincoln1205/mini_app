@@ -40,9 +40,7 @@ $ rails s
 ### Tarefa 1
 1 - Logo na sequência que criou a conta no passo anterior, será necessário criar um perfil.
 Porém há um bug nesta feature, a atividade da tarefa 1 é tentar identificá-lo e corrigir.
-=> Action create não estava recebendo os parameters pois o método private profile_params estava vazio. Adicionado os parameters e passou a criar o perfil.
-=> As actions show, private_page, edit, update e change_privacy não estavam localizando a instância de @profile, adicionado com o helper before_action chamando o método find_profile para localizar a variável de instância @profile. before_action :find_profile, only: [:show, :private_page, :edit, :update, :change_privacy]
-=> Adicionado action de show ao before_action :public?, except: %i[private_page, show]
+
 ### Tarefa 2
 2 - Para esta tarefa é necessário a execução do seeds antes, certifique-se que você populou o banco de dados.
 2.1 - Esta atividade é para ser criado um relatório de todas as Tarefas, onde listaremos algo semelhante ao exemplo abaixo:

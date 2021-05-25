@@ -1,0 +1,21 @@
+<div class="d-flex justify-content-center">
+  <table>
+    <thead>
+      <tr>
+        <th>Tasks (ID)</th>
+        <th>Comments</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% complete_tasks.each do |comment| %>
+          <tr>
+            <td><%= comment.task.id %></td>
+            <td><%=comment.body %></td>      
+            <td><%=comment.task.status%></td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
