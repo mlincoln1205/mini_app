@@ -35,6 +35,16 @@
 
     <div class='row'>
       <p class='col-4'></p> 
+      <div class='col-4' align='center'>
+        <%= f.label :status, 'Status', placeholder: 'Complete or Inconplete' %>
+        <%= f.text_area :status, class: 'form-control mb-2', rows: '4' %>
+      </div>
+    </div>
+
+    <br>
+
+    <div class='row'>
+      <p class='col-4'></p> 
       <div class='col-4' align='center'> 
         <%= f.hidden_field :user_id, value: params[:id]%>
         <%= f.submit class: 'btn btn-primary col-4'%>

@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   skip_before_action :verify_authenticity_token, only: %i[search]
     
   def index
-    @tasks = Task.all.where(user_id: current_user.id).order(id: :asc)
+    @tasks = Task.all.where(user_id: current_user.id).order(id: :desc)
   end
 
   def show
@@ -26,14 +26,13 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @task = Task.find(params[:id])
   end
 
   def update
     if @task.update(task_params)
-      redirect_to tasks_path, notice: 'Topic was successfully updated!'
+      redirect_to tasks_path, notice: 'Task was successfully updated!'
     else
-      redirect_to tasks_path, notice: 'Topic wasn\'t updated!'
+      redirect_to tasks_path, notice: 'Task wasn\'t updated!'
     end
   end
 
@@ -43,9 +42,11 @@ class TasksController < ApplicationController
   end
 
   def complete
+    # This parameter is handled on edit form since when it's created by default is "incomplete"
   end
 
   def incomplete
+    # This parameter is handled on edit form since when it's created by default is "incomplete"
   end
 
   private
@@ -59,7 +60,8 @@ class TasksController < ApplicationController
   end  
 
   def comment_params
-    params.require(:comment).permit(:body, :like_status)
+    # comments are are been treated on comments controller
+    # params.require(:comment).permit(:body, :like_status)
   end 
 
   def sanitize_sql_like(string, escape_character = "\\")
