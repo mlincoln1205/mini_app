@@ -1,4 +1,7 @@
 <div class="d-flex justify-content-center">
+  <h4>Comments by Alphabetical Order</h4>
+</div> 
+<div class="d-flex justify-content-center" id="task_report">
   <table>
     <thead>
       <tr>
@@ -8,9 +11,9 @@
       </tr>
     </thead>
     <tbody>
-      <% complete_tasks.each do |comment| %>
+      <% complete_tasks_comments.each do |comment| %>
           <tr>
-            <td><%= comment.task.id %></td>
+            <td><%= comment.task.id %></td> 
             <td><%=comment.body %></td>      
             <td><%=comment.task.status%></td>
           </tr>
@@ -19,3 +22,45 @@
   </table>
 </div>
 
+<br>
+<br>
+<br>
+
+<div class="d-flex justify-content-center">
+  <h4>Completed Tasks</h4>
+</div>
+
+<div class="d-flex container justify-content-center">
+  <table>
+    <thead>
+      <tr>
+        <th>Created at</th>
+        <th>Tasks (ID)</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Priority</th>
+        <th>Status</th>
+        <th>User nickname</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% complete_tasks.each do |task| %>
+          <tr>
+            <td><%= time_ago_in_words(task.created_at) %></td>
+            <td><%= task.id %></td>
+            <td><%=task.title %></td>      
+            <td><%=task.description %></td>
+            <td><%=task.priority %></td>
+            <td><%=task.status %></td>
+            <td><%=task.user.profile.nickname %></td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br>
+
+<div class='d-flex justify-content-center'> 
+  <%= link_to 'Go Back', :back, class: 'btn btn-secondary col-2' %>
+</div>

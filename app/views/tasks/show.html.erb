@@ -1,1 +1,40 @@
-<p> <%= @task.id %> - <%= @task.description %> - <%= @task.status %> </p>
+<h4 class="text-center"> Task id: <%= @task.id %> </h4>
+<div class='d-flex container justify-content-center' >
+  <table>
+    <thead>
+      <tr>
+        <th>Created at</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Priority</th>
+        <th>Status</th>
+        <th>User nickname</th>
+        <th>Handle</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <tr>
+        <td><%= time_ago_in_words(@task.created_at) %></td>
+        <td><%=@task.title %></td>      
+        <td><%=@task.description %></td>
+        <td><%=@task.priority %></td>
+        <td><%=@task.status %></td>
+        <td><%=@task.user.profile.nickname %></td>
+        <td>
+        <div class="d-flex flex-row m-2">
+          <%= link_to '', edit_task_path(@task), class: 'fa fa-edit mr-1' %> 
+          <%= link_to '', @task, class: 'fa fa-trash ml-1 mr-1', method: :delete, data: { confirm: 'Are you sure?' } %> 
+          <%= link_to '', new_task_comment_path(@task), class: 'fa fa-comment ml-1' %>
+        </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<br>
+
+<div class='d-flex justify-content-center'> 
+  <%= link_to 'Go Back', :back, class: 'btn btn-secondary col-2' %>
+</div>
