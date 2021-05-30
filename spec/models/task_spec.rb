@@ -42,7 +42,7 @@ RSpec.describe Task, type: :model do
       task.user = user
       task.save
 
-      visit "/tasks/#{user.tasks.first.id}/edit"
+      visit "/tasks/#{user.tasks.last.id}/edit"
 
       find('.edit_task') do
         fill_in 'task[status]', with: 'complete'
@@ -53,4 +53,3 @@ RSpec.describe Task, type: :model do
     end
   end
 end
-

@@ -7,4 +7,5 @@ module TaskReportsHelper
   def complete_tasks
     @tasks.select { |task| task.status == 'complete' }
   end
+  
 end

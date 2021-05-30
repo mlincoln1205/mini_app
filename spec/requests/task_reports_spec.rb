@@ -42,7 +42,7 @@ RSpec.describe "TaskReports", type: :request do
       click_button 'Update Task'
   
       visit "/task_reports"
-      expect(page).to have_content(task.status == 'complete')
+      expect(page).not_to have_content('incomplete')
     end
   end
 end
