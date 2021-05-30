@@ -21,7 +21,7 @@ RSpec.describe "TaskReports", type: :request do
       expect(page).to have_selector('h4', text: 'Completed Tasks')
     end
 
-    it 'Check Content of Task\'s List' do
+    it 'Returns only complete tasks' do
       user = create(:user)
       profile = create(:profile, user: user)
       login_as(user)
